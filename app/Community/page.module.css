@@ -1,0 +1,52 @@
+.header {
+    gap: 3rem;
+    margin: 3rem auto 5rem auto;
+    width: 90%;
+    max-width: 75rem;
+    color: #ddd6cb;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .header h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+  .main {
+    width: 90%;
+    max-width: 40rem;
+    text-align: center;
+  }
+  
+  .main h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #ddd6cb;
+  }
+  
+  .perks {
+    margin: 3rem 0;
+    padding: 0rem;
+  }
+  
+  .perks li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .perks img {
+    width: 8rem;
+    height: 6rem;
+    object-fit: contain;
+  }
+  
+  .perks p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #ddd6cb;
+  }
