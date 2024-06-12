@@ -1,4 +1,4 @@
-
+import React from "react";
 import Mainheader from "@/component/main-header/main-header";
 import "./globals.css";
 export const metadata = {

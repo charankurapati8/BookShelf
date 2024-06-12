@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import logoimga from '@/assets/logoimg.png'
 import classes from './main-header.module.css'

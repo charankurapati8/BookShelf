@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import classes from './book-item.module.css'
+import React from 'react';
 
 export default function BookItem({title,slug,image,summary,creator}) {
   return (

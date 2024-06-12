@@ -1,5 +1,5 @@
 import classes from './main-header-background.module.css';
-
+import React from 'react';
 export default function MainHeaderBackground() {
   return (
     <div className={classes['header-background']}>

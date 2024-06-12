@@ -1,4 +1,4 @@
-'use client'
+import React from 'react';
 import ImagePicker from '@/component/Book/image-picker';
 import classes from './page.module.css';
 import { ShareBook } from '@/lib/actions';

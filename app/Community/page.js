@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import communityimg from '@/assets/icons/community.png'
 import groupimg from '@/assets/icons/group.png'
