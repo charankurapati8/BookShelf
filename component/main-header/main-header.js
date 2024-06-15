@@ -11,7 +11,7 @@ export default function Mainheader(){
             <Link className={classes.logo}  href={"/"}>
                 <img  src={logoimga.src} alt="library"/>
     </Link>
-List of books in the library
+ <h1>List of books in the library</h1>
             <nav className={classes.nav}>
                 <ul>
                     <li>
