@@ -8,7 +8,7 @@ export default function ShareBookPage() {
     <>
       <header className={classes.header}>
         <h1>
-          Share your <span className={classes.highlight}>favorite meal</span>
+          Share your <span className={classes.highlight}>favorite book</span>
         </h1>
       </header>
       <main className={classes.main}>
