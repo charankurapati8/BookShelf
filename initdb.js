@@ -78,6 +78,21 @@ db.prepare(`
     )
 `).run();
 
+db.prepare(`
+  CREATE TABLE IF NOT EXISTS favourite_books(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  book_id INTEGER,
+  slug TEXT,
+  title TEXT,
+  image TEXT,
+  summary TEXT,
+  instructions TEXT,
+  creator TEXT,
+  creator_email TEXT,
+  FOREIGN KEY (book_id) REFERENCES books(id)
+  )
+  `).run();
+
 async function initData() {
   const stmt = db.prepare(`
       INSERT INTO books VALUES (
