@@ -37,9 +37,7 @@ export default function Mainheader(){
                         <li>
                             <Link href={"/favouritebooks"}>Favourite Books</Link>
                         </li>
-                        <li>
-                            <Link href={"/removebooks"}>Remove books</Link>
-                        </li>
+
                     </ul>
 
                 </div>
