@@ -70,3 +70,65 @@
     background: linear-gradient(90deg, #fd4715, #f9b241);
     box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
   }
+  .disabled {
+    color: gray;
+    pointer-events: none;
+    padding: 1rem;
+    text-align: right;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 1rem;
+    cursor: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border: none; 
+    outline: none; 
+  }
+
+  .remove{
+    padding: 1rem;
+    text-align: right;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #f9572a, #ff9b05);
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border: none; 
+    outline: none; 
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+  }
+ .remove:hover,
+ .remove:active {
+   background: linear-gradient(90deg, #fd4715, #f9b241);
+    box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
+  }
+
+  .button{
+    padding: 1rem;
+    text-align: right;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #f9572a, #ff9b05);
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border: none; 
+    outline: none; 
+  }
+
+  .button:hover,
+  .button:active {
+    background: linear-gradient(90deg, #fd4715, #f9b241);
+     box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
+   }
