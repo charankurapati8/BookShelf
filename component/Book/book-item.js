@@ -4,23 +4,13 @@ import Image from 'next/image';
 import classes from './book-item.module.css'
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-export default function BookItem({title,slug,image,summary,creator,onRemove,isFavouritePage}) {
-  const [isFavourite,setIsFavourite] = useState(false);
-
+export default function BookItem({title,slug,image,summary,creator,onRemove,isFavouritePage,initialFavourite}) {
+  const [isFavourite,setIsFavourite] = useState(initialFavourite);
   useEffect(()=>{
-    const checkFav = async()=>{
-      const response = await fetch('/api/favourite');
-      const data = await response.json();
-      const isFav = data.some(book=>book.slug===slug);
-      setIsFavourite(isFav);
-    };
-    checkFav();
-  },[slug]);
-
-  
+    setIsFavourite(initialFavourite);
+  },[initialFavourite])
   const toggleFavourite = async () =>{
-    if(isFavourite)return;
-    setIsFavourite(true);
+     setIsFavourite(true);
     const response = await fetch('/api/favourite',{
       method:'POST',
       headers:{
@@ -45,7 +35,6 @@ const removeFavBook = async()=>{
     setIsFavourite(false);
   }
 };
-
   return (
     <article className={classes.book}>
       <header>
@@ -69,7 +58,7 @@ const removeFavBook = async()=>{
               >
                 {isFavourite ? 'Already in favorites' : 'Add favorite books'}
               </button>
-            </div>
+            </div>    
           )}
           <div>
           <Link href={`/sharepage?title=${(title)}&summary=${(summary)}`}>Share Book</Link>
@@ -80,7 +69,7 @@ const removeFavBook = async()=>{
          onClick={removeFavBook}>Remove book</button>}
           </div>
         </div>
-        
+
       </div>
     </article>
   );
