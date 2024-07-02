@@ -3,7 +3,7 @@ const db = sql('books.db');
 export default function handle(req,res){
     if(req.method==='POST'){
         const {slug} = req.body;
-        const book = db.prepare('SELECT * FROM books WHERE slug=?').get(slug);
+       const book = db.prepare('SELECT * FROM books WHERE slug=?').get(slug);
         if(book){
             const stmt = db.prepare('INSERT INTO favourite_books (book_id, slug, title, image, summary, instructions, creator,creator_email ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
             stmt.run(
@@ -28,15 +28,14 @@ export default function handle(req,res){
             stmt.run(book.id);
             res.status(200).json({message:'removed book'});
         } else{
-            res.status(400).json({message:'book not found in fac'});
+            res.status(400).json({message:'book not found in fav'});
         }
 
     } 
     else if (req.method === 'GET'){
         const favouritebooks = db.prepare(`
-            SELECT books.* ,favourite_books.*
+            SELECT  favourite_books.*
             FROM favourite_books
-            JOIN books ON books.id = favourite_books.book_id
             `).all();
             res.status(200).json(favouritebooks);
     } 
