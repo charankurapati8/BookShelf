@@ -3,13 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import classes from './book-item.module.css'
 import React, { useEffect } from 'react';
+import { FaBookmark,FaShare,FaTrash } from 'react-icons/fa';
 import { useState } from 'react';
 export default function BookItem({title,slug,image,summary,creator,onRemove,isFavouritePage,initialFavourite}) {
   const [isFavourite,setIsFavourite] = useState(initialFavourite);
   useEffect(()=>{
     setIsFavourite(initialFavourite);
   },[initialFavourite])
-  const toggleFavourite = async () =>{
+  const toggleFavourite = async(event) => {
+    event.stopPropagation();
      setIsFavourite(true);
     const response = await fetch('/api/favourite',{
       method:'POST',
@@ -18,11 +20,9 @@ export default function BookItem({title,slug,image,summary,creator,onRemove,isFa
       },
       body:JSON.stringify({slug}),
     });
-    if (!response.ok) {
-      throw new Error('Failed to add favorite');
-  } 
 };
-const removeFavBook = async()=>{
+const removeFavBook = async(event) => {
+  event.stopPropagation();
   const response = await fetch('/api/favourite',{
     method:'DELETE',
     headers:{
@@ -35,11 +35,14 @@ const removeFavBook = async()=>{
     setIsFavourite(false);
   }
 };
+const handleBook = () => {
+  window.location.href = `/Book/${slug}`;
+};
   return (
-    <article className={classes.book}>
+    <article className={classes.book} onClick={handleBook}>
       <header>
         <div className={classes.imageWrapper}>
-        <Image src={image} alt={title} fill/>
+        <Image src={image} alt={title}  width={375} height={200} priority/>
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>
@@ -48,29 +51,29 @@ const removeFavBook = async()=>{
       </header>
       <div className={classes.content}>
         <p className={classes.summary}>{summary}</p>
+        <div>
         <div className={classes.actions}>
-        {!isFavouritePage && (
-            <div>
-              <button
-                className={`${isFavourite ? classes.disabled : classes.button}`}
-                onClick={toggleFavourite}
-                disabled={isFavourite}
-              >
-                {isFavourite ? 'Already in favorites' : 'Add favorite books'}
-              </button>
-            </div>    
+      {!isFavouritePage && (
+          <button className={`${isFavourite ? classes.disabled : classes.button}`}
+          onClick={toggleFavourite}
+          disabled={isFavourite}>
+      <FaBookmark />
+    </button>
           )}
           <div>
-          <Link href={`/sharepage?title=${(title)}&summary=${(summary)}`}>Share Book</Link>
+          <Link href={`/sharepage?title=${(title)}&summary=${(summary)}`}>
+          <FaShare/>
+          </Link>
           </div>
-          <Link href={`/Book/${slug}`}>View Details</Link>
-          <div>
-          {isFavouritePage && <button className={classes.remove} 
-         onClick={removeFavBook}>Remove book</button>}
           </div>
-        </div>
-
       </div>
+          <div className={classes.actions}>
+          {isFavouritePage && <button className={classes.remove} 
+         onClick={removeFavBook}>
+          <FaTrash/>
+          </button>}
+          </div>
+          </div>
     </article>
   );
 }

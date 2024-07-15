@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -72,16 +73,13 @@
   }
   .disabled {
     color: gray;
-    pointer-events: none;
     padding: 1rem;
     text-align: right;
-    cursor: pointer;
-    display: inline-block;
     margin-top: 1rem;
-    cursor: none;
+    cursor: not-allowed;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    color: #ffffff;
+    color: #f9b241;
     font-weight: bold;
     text-decoration: none;
     border: none; 
@@ -119,16 +117,11 @@
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    background: linear-gradient(90deg, #f9572a, #ff9b05);
-    color: #ffffff;
-    font-weight: bold;
     text-decoration: none;
     border: none; 
     outline: none; 
   }
 
-  .button:hover,
-  .button:active {
-    background: linear-gradient(90deg, #fd4715, #f9b241);
-     box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
-   }
+  .icon{
+    margin-right: 1rem;
+  }
