@@ -19,14 +19,14 @@
   }
   
   .main {
-    width: 90%;
+    width: 80%;
     max-width: 75rem;
     margin: 3rem auto;
     color: white;
   }
   
   .form {
-    max-width: 50rem;
+    max-width: 80rem;
   }
   
   .form label {
