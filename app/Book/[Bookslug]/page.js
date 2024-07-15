@@ -16,7 +16,7 @@ export default function BookDetailsPage({params}){
             <p>     
                by 
             </p>
-            <p className={classes.creator}><a href={`mailto:${book.creator_email}`}>{book.creator}</a></p>
+            <p className={classes.creator}><a>{book.creator}</a></p>
             <p className={classes.summary}>{book.summary}</p>
         </div>
     </header>
