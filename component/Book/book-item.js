@@ -38,6 +38,28 @@ const removeFavBook = async(event) => {
 const handleBook = () => {
   window.location.href = `/Book/${slug}`;
 };
+
+const validatesummary = (text,maxLength)=>{
+  if(text.length>maxLength){
+    return text.substring(0,maxLength)+ '...';
+  }
+  return text;
+}
+
+const validatetitle = (text,maxLength)=>{
+  if(text.length>maxLength){
+    return text.substring(0,maxLength)+'...';
+  }
+  return text;
+}
+
+const validatecreator =  (text,maxLength)=>{
+  if(text.length>maxLength){
+    return text.substring(0,maxLength)+'...';
+  }
+  return text;
+}
+
   return (
     <article className={classes.book} onClick={handleBook}>
       <header>
@@ -45,12 +67,12 @@ const handleBook = () => {
         <Image src={image} alt={title}  width={375} height={200} priority/>
         </div>
         <div className={classes.headerText}>
-          <h2>{title}</h2>
-          <p>by {creator}</p>
+          <h2>{validatetitle(title,15)}</h2>
+          <p>by {validatecreator(creator,10)}</p>
         </div>
       </header>
       <div className={classes.content}>
-        <p className={classes.summary}>{summary}</p>
+        <p className={classes.summary}>{validatesummary(summary,50)}</p>
         <div>
         <div className={classes.actions}>
       {!isFavouritePage && (
