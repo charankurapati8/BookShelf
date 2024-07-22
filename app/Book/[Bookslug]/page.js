@@ -1,9 +1,9 @@
 import React from 'react';
-import { getBook } from '@/lib/books'
+import { getBookStorage } from '@/lib/addbook';
 import classes from './page.module.css'
 import Image from 'next/image'
-export default function BookDetailsPage({params}){
-   const book = getBook(params.Bookslug);
+export default async function BookDetailsPage({params}){
+   const book = await getBookStorage(params.Bookslug);
    book.instructions = book.instructions.replace(/\n/g , '<br/>');
     return (
     <>

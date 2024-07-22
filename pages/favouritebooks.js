@@ -7,7 +7,7 @@ export default function Favourite(){
     const [favouriteBooks,setFavouriteBooks] = useState([]);
   useEffect(()=>{
     const fetchFavouriteBooks = async()=>{
-            const response = await fetch('/api/favourite');
+            const response = await fetch('/api/favourites');
             const data = await response.json();
             setFavouriteBooks(data); 
     };

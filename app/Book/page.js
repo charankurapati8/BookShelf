@@ -1,11 +1,10 @@
 import React from 'react';
 import Booksgrid from '@/component/Book/books-grid'
 import classes from './page.module.css'
-import {  getBooks } from '@/lib/books'
+import { getBooksStorage } from '@/lib/addbook';
 import { Suspense } from 'react';
-import Link from 'next/link';
  async function Books(){
-        const books = await getBooks();
+        const books = await getBooksStorage();
         return <Booksgrid books={books}/>
 }
 export default function Book(){
