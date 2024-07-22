@@ -13,7 +13,7 @@ export default function BookItem({title,slug,image,summary,creator,onRemove,isFa
   const toggleFavourite = async(event) => {
     event.stopPropagation();
      setIsFavourite(true);
-    const response = await fetch('/api/favourite',{
+    const response = await fetch('/api/favourites',{
       method:'POST',
       headers:{
         'content-type':'application/json',
@@ -23,7 +23,7 @@ export default function BookItem({title,slug,image,summary,creator,onRemove,isFa
 };
 const removeFavBook = async(event) => {
   event.stopPropagation();
-  const response = await fetch('/api/favourite',{
+  const response = await fetch('/api/favourites',{
     method:'DELETE',
     headers:{
       'content-type':'application/json',
@@ -83,9 +83,11 @@ const validatecreator =  (text,maxLength)=>{
     </button>
           )}
           <div>
-          <Link href={`/sharepage?title=${(title)}&summary=${(summary)}`}>
-          <FaShare/>
-          </Link>
+            {!isFavouritePage && (
+                     <Link href={`/sharepage?title=${(title)}&summary=${(summary)}`}>
+                     <FaShare/>
+                     </Link>
+            )}
           </div>
           </div>
       </div>
